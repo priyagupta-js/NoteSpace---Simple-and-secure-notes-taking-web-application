@@ -9,11 +9,13 @@ export default function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const onChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
       const res = await api.post("/auth/login", form);
       localStorage.setItem("token", res.data.token);
@@ -24,38 +26,50 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen w-full relative overflow-hidden bg-linear-to-br from-cyan-200 via-blue-300 to-purple-400">
+    <div className="min-h-screen w-full relative overflow-hidden bg-gradient-to-br from-cyan-200 via-blue-300 to-purple-400">
 
-      {/* Background Shapes */}
       <Background />
 
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-sm sm:max-w-md">
 
-          {/* Glassmorphic card */}
-          <div className="relative backdrop-blur-xl bg-white/10 rounded-[40px] p-12 shadow-2xl border border-white/20">
-            
-            <div className="text-center mb-8">
-              <h1 className="text-5xl font-bold bg-linear-to-r from-orange-200 via-pink-200 to-purple-200 bg-clip-text text-transparent">
+          {/* Glassmorphic Card */}
+          <div className="relative backdrop-blur-xl bg-white/10 
+                          rounded-[30px] sm:rounded-[40px] 
+                          p-8 sm:p-12 shadow-2xl border border-white/20">
+
+            {/* Logo */}
+            <div className="text-center mb-6 sm:mb-8">
+              <h1 className="text-4xl sm:text-5xl font-bold mb-2 
+                             bg-gradient-to-r from-orange-200 via-pink-200 to-purple-200 
+                             bg-clip-text text-transparent">
                 NoteSpace
               </h1>
-              <p className="text-white/80 text-sm">Capture your thoughts beautifully.</p>
+              <p className="text-white/80 text-xs sm:text-sm">Capture your thoughts beautifully.</p>
             </div>
 
-            <form onSubmit={onSubmit} className="space-y-6">
+            {error && (
+              <div className="bg-red-300/60 text-red-800 p-2 rounded-md text-sm mb-4">
+                {error}
+              </div>
+            )}
+
+            {/* Form */}
+            <form onSubmit={onSubmit} className="space-y-5">
 
               {/* Email */}
               <div className="relative">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
-                <Mail size={18}  />
-                </div>
+                <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
                 <input
                   type="email"
                   name="email"
+                  placeholder="Email"
                   value={form.email}
                   onChange={onChange}
-                  placeholder="Email"
-                  className="w-full bg-white/70 rounded-full pl-12 pr-4 py-3 focus:ring-2 focus:ring-white/50 text-gray-700"
+                  className="w-full bg-white/70 rounded-full 
+                             pl-12 pr-4 py-2.5 sm:py-3 
+                             text-sm sm:text-base text-gray-700 
+                             placeholder-gray-500 focus:ring-2 focus:ring-white/50"
                 />
               </div>
 
@@ -65,34 +79,33 @@ export default function Login() {
                 <input
                   type="password"
                   name="password"
+                  placeholder="Password"
                   value={form.password}
                   onChange={onChange}
-                  placeholder="Password"
-                  className="w-full bg-white/70 rounded-full pl-12 pr-4 py-3 focus:ring-2 focus:ring-white/50 text-gray-700"
+                  className="w-full bg-white/70 rounded-full 
+                             pl-12 pr-4 py-2.5 sm:py-3 
+                             text-sm sm:text-base text-gray-700 
+                             placeholder-gray-500 focus:ring-2 focus:ring-white/50"
                 />
               </div>
-           {error && (
-              <div className="bg-red-300/60 text-red-800 p-2 rounded-md text-sm mb-4">
-                {error}
-              </div>
-            )}
-              {/* LOGIN BUTTON */}
+
+              {/* Button */}
               <button
                 type="submit"
-                className="w-full bg-linear-to-r from-purple-300 via-pink-300 to-orange-300 text-white font-semibold rounded-full py-3 shadow-lg hover:scale-105 transition-transform"
-              >
+                className="w-full bg-gradient-to-r from-purple-300 via-pink-300 to-orange-300 
+                           text-white font-semibold rounded-full 
+                           py-2.5 sm:py-3 text-sm sm:text-base
+                           shadow-lg hover:scale-105 transition-transform">
                 Login
               </button>
             </form>
 
-            <p className="text-center mt-4 text-white/90 text-sm">
+            <p className="text-center mt-4 text-white text-xs sm:text-sm">
               Don’t have an account?{" "}
-              <Link to="/signup" className="font-semibold hover:underline">
-                Sign up
-              </Link>
+              <Link to="/signup" className="font-semibold hover:underline">Sign up</Link>
             </p>
-          </div>
 
+          </div>
         </div>
       </div>
     </div>
