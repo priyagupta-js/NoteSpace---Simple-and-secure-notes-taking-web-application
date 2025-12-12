@@ -5,7 +5,7 @@ export default function Background() {
   return (
     <>
       {/* Soft gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-300/30 via-pink-200/30 to-orange-200/30 animate-pulse"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-purple-300/30 via-pink-200/30 to-orange-200/30 animate-pulse"></div>
 
       {/* Floating shapes */}
       <div className="absolute top-20 left-20 w-32 h-32 bg-white/20 rounded-3xl backdrop-blur-sm rotate-12 animate-float"></div>
