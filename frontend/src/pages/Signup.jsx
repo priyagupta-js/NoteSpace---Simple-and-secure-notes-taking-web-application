@@ -1,0 +1,108 @@
+import React, { useState } from "react";
+import { Mail, Lock, User } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../api/api";
+import Background from "../components/Background";
+
+export default function Signup() {
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const onChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await api.post("/auth/signup", form);
+      navigate("/login");
+    } catch (err) {
+      setError(err.response?.data?.message || "Signup failed");
+    }
+  };
+
+  return (
+    <div className="min-h-screen w-full relative overflow-hidden bg-gradient-to-br from-purple-200 via-blue-200 to-pink-300">
+
+      <Background />
+
+      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
+        <div className="w-full max-w-md">
+
+          <div className="relative backdrop-blur-xl bg-white/10 rounded-[40px] p-12 shadow-2xl border border-white/20">
+
+            <div className="text-center mb-8">
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+                Create Account
+              </h1>
+              <p className="text-white/80 text-sm">Join NoteSpace today ✨</p>
+            </div>
+
+            {error && (
+              <div className="bg-red-300/60 text-red-800 p-2 rounded-md text-sm mb-4">
+                {error}
+              </div>
+            )}
+
+            <form onSubmit={onSubmit} className="space-y-6">
+
+              <div className="relative">
+                <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={form.name}
+                  onChange={onChange}
+                  className="w-full bg-white/70 rounded-full pl-12 pr-4 py-3 text-gray-700"
+                />
+              </div>
+
+              <div className="relative">
+                <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={form.email}
+                  onChange={onChange}
+                  className="w-full bg-white/70 rounded-full pl-12 pr-4 py-3 text-gray-700"
+                />
+              </div>
+
+              <div className="relative">
+                <Lock size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={form.password}
+                  onChange={onChange}
+                  className="w-full bg-white/70 rounded-full pl-12 pr-4 py-3 text-gray-700"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-purple-300 via-pink-300 to-orange-300 text-white font-semibold rounded-full py-3 shadow-lg hover:scale-105 transition"
+              >
+                Create Account
+              </button>
+            </form>
+
+            <p className="text-center mt-4 text-white/90 text-sm">
+              Already have an account?{" "}
+              <Link to="/login" className="font-semibold hover:underline">
+                Login
+              </Link>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
