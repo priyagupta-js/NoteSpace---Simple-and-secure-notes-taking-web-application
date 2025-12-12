@@ -24,7 +24,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen w-full relative overflow-hidden bg-gradient-to-br from-cyan-200 via-blue-300 to-purple-400">
+    <div className="min-h-screen w-full relative overflow-hidden bg-linear-to-br from-cyan-200 via-blue-300 to-purple-400">
 
       {/* Background Shapes */}
       <Background />
@@ -36,7 +36,7 @@ export default function Login() {
           <div className="relative backdrop-blur-xl bg-white/10 rounded-[40px] p-12 shadow-2xl border border-white/20">
             
             <div className="text-center mb-8">
-              <h1 className="text-5xl font-bold bg-gradient-to-r from-orange-200 via-pink-200 to-purple-200 bg-clip-text text-transparent">
+              <h1 className="text-5xl font-bold bg-linear-to-r from-orange-200 via-pink-200 to-purple-200 bg-clip-text text-transparent">
                 NoteSpace
               </h1>
               <p className="text-white/80 text-sm">Capture your thoughts beautifully.</p>
@@ -79,7 +79,7 @@ export default function Login() {
               {/* LOGIN BUTTON */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-300 via-pink-300 to-orange-300 text-white font-semibold rounded-full py-3 shadow-lg hover:scale-105 transition-transform"
+                className="w-full bg-linear-to-r from-purple-300 via-pink-300 to-orange-300 text-white font-semibold rounded-full py-3 shadow-lg hover:scale-105 transition-transform"
               >
                 Login
               </button>
