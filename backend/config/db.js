@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/notes_dashboard';
+    const uri = process.env.MONGO_URI;
     await mongoose.connect(uri); // no deprecated options
     console.log('MongoDB connected');
   } catch (err) {
