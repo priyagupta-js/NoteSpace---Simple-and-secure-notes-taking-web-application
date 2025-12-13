@@ -1,10 +1,10 @@
-# 📝 NoteSpace — Simple & Secure Notes Taking App
+# NoteSpace — Simple & Secure Notes Taking App
 
 **NoteSpace** is a modern, full-stack notes management web application that allows users to securely create, edit, organize, and manage notes with a beautiful and responsive UI.
 The project focuses on **clean UX**, **secure authentication**, and **scalable backend architecture**.
 
 🔗 **Live Website:**
-👉 [https://note-space-simple-and-secure-notes.vercel.app/](https://note-space-simple-and-secure-notes.vercel.app/) 
+[https://note-space-simple-and-secure-notes.vercel.app/](LINK) 
 ---
 
 ## Features
@@ -120,7 +120,7 @@ NoteSpace/
 ## Author
 
 **Your Name**
-🔗 GitHub: [https://github.com/priyagupta-js](https://github.com/priyagupta-js)
-🔗 LinkedIn: [https://www.linkedin.com/in/priyagupta-js/](https://www.linkedin.com/in/priyagupta-js/)
+🔗 GitHub: [https://github.com/priyagupta-js](click here)
+🔗 LinkedIn: [https://www.linkedin.com/in/priyagupta-js/](click here)
 
 ---
