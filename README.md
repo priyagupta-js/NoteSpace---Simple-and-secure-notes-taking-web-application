@@ -120,7 +120,7 @@ NoteSpace/
 ## Author
 
 **Your Name**
-🔗 GitHub: [https://github.com/priyagupta-js](click here)
-🔗 LinkedIn: [https://www.linkedin.com/in/priyagupta-js/](click here)
+🔗 GitHub: [Click here](https://github.com/priyagupta-js)
+🔗 LinkedIn: [Click here](https://www.linkedin.com/in/priyagupta-js/)
 
 ---
