@@ -4,7 +4,7 @@
 The project focuses on **clean UX**, **secure authentication**, and **scalable backend architecture**.
 
 🔗 **Live Website:**
-[https://note-space-simple-and-secure-notes.vercel.app/](LINK) 
+[LINK](https://note-space-simple-and-secure-notes.vercel.app/) 
 ---
 
 ## Features
