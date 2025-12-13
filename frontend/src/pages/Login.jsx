@@ -25,7 +25,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen w-full relative overflow-hidden bg-gradient-to-br from-cyan-200 via-blue-300 to-purple-400">
+    <div className="min-h-screen w-full relative overflow-hidden bg-linear-to-br from-cyan-200 via-blue-300 to-purple-400">
       <Background />
 
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
@@ -40,7 +40,7 @@ export default function Login() {
             <div className="text-center mb-6 sm:mb-8">
               <h1
                 className="text-4xl sm:text-5xl font-bold mb-2 
-                             bg-gradient-to-r   from-purple-400 to-orange-300 
+                             bg-linear-to-r   from-purple-400 to-orange-300 
                              bg-clip-text text-transparent"
               >
                 NoteSpace
@@ -95,7 +95,7 @@ export default function Login() {
               {/* Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-300 via-pink-300 to-orange-300 text-white font-semibold rounded-full py-2.5 sm:py-3 text-sm sm:text-base shadow-lg hover:scale-105 transition-transform"
+                className="w-full bg-linear-to-r from-purple-300 via-pink-300 to-orange-300 text-white font-semibold rounded-full py-2.5 sm:py-3 text-sm sm:text-base shadow-lg hover:scale-105 transition-transform"
               >
                 {" "}
                 Login{" "}

@@ -123,10 +123,10 @@ export default function Dashboard() {
 
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 bg-linear-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-lg">N</span>
             </div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               NoteSpace
             </h1>
           </div>
@@ -170,7 +170,7 @@ export default function Dashboard() {
           {notes.map((note) => (
             <div
               key={note.id}
-              className={`break-inside-avoid shadow-md bg-gradient-to-br ${note.color} ${note.height}
+              className={`break-inside-avoid shadow-md bg-linear-to-br ${note.color} ${note.height}
                          rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl transition cursor-pointer group`}
             >
               <div className="flex justify-between mb-3">
@@ -214,7 +214,7 @@ export default function Dashboard() {
       {/* ADD BUTTON */}
       <button
         onClick={handleAddNote}
-        className="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 
+        className="fixed bottom-8 right-8 w-16 h-16 bg-linear-to-r from-purple-500 to-pink-500 
                    hover:scale-110 transition shadow-2xl rounded-full flex items-center justify-center"
       >
         <Plus size={28} />
@@ -286,7 +286,7 @@ export default function Dashboard() {
 
                 <button
                   onClick={handleSaveNote}
-                  className="flex-1 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:scale-105 transition"
+                  className="flex-1 py-3 bg-linear-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:scale-105 transition"
                 >
                   Save Note
                 </button>

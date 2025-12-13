@@ -5,7 +5,7 @@ export default function AuthBackground() {
   return (
     <>
       {/* Soft animated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-300/30 via-pink-200/30 to-orange-200/30 animate-pulse"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-purple-300/30 via-pink-200/30 to-orange-200/30 animate-pulse"></div>
 
       {/* Floating shapes - auto scale on mobile */}
       <div className="absolute top-10 left-6 md:top-20 md:left-20 

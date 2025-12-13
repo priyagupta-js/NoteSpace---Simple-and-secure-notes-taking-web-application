@@ -102,7 +102,7 @@ export default function Profile() {
             {/* Save Button */}
             <button
               onClick={handleSave}
-              className="mt-6 w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition"
+              className="mt-6 w-full bg-linear-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition"
             >
               <Save size={16} className="inline mr-1" />
               Save Changes
@@ -116,7 +116,7 @@ export default function Profile() {
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-white/60 backdrop-blur-xl border rounded-2xl p-6 shadow-lg">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white">
+                <div className="w-14 h-14 bg-linear-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white">
                   <FileText />
                 </div>
                 <div>
