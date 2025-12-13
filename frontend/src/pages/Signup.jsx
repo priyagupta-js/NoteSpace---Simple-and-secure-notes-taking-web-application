@@ -30,10 +30,10 @@ export default function Signup() {
         <div className="w-full max-w-md">
           <div className="relative backdrop-blur-xl bg-white/10 rounded-[40px] p-12 shadow-2xl border border-white/20">
             <div className="text-center mb-8">
-              <h1 className="text-4xl font-bold bg-linear-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold bg-linear-to-r from-purple-400 to-orange-300  bg-clip-text text-transparent">
                 Create Account
               </h1>
-              <p className="text-white/80 text-sm">Join NoteSpace today ✨</p>
+              <p className="text-gray-700 mt-2 text-sm">Join NoteSpace today</p>
             </div>
 
             <form onSubmit={onSubmit} className="space-y-6">
@@ -82,11 +82,6 @@ export default function Signup() {
                 />
               </div>
 
-              {error && (
-                <div className="bg-red-300/60 text-red-800 p-2 rounded-md text-sm mb-4">
-                  {error}
-                </div>
-              )}
               <button
                 type="submit"
                 className="w-full bg-linear-to-r from-purple-300 via-pink-300 to-orange-300 text-white font-semibold rounded-full py-3 shadow-lg hover:scale-105 transition"
@@ -95,7 +90,13 @@ export default function Signup() {
               </button>
             </form>
 
-            <p className="text-center mt-4 text-white/90 text-sm">
+            {error && (
+                <div className="text-center text-red-800 p-2 rounded-md text-sm mt-4 ">
+                  {error}
+                </div>
+                 )}
+
+            <p className="text-center mt-4 text-white text-sm">
               Already have an account?{" "}
               <Link to="/login" className="font-semibold hover:underline">
                 Login

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Plus, Edit2, Trash2, Search, User, LogOut, X, Tag } from "lucide-react";
 import api from "../api/api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-// random UI extras
 const colors = [
   "from-yellow-100 to-yellow-200",
   "from-blue-100 to-blue-200",
@@ -32,7 +31,7 @@ export default function Dashboard() {
 
   const [search, setSearch] = useState("");
 
-  // 🔹 Fetch Notes
+  //Fetch Notes
   const fetchNotes = async () => {
     try {
       const res = await api.get(`/notes${search ? `?q=${search}` : ""}`);
@@ -57,14 +56,14 @@ export default function Dashboard() {
     fetchNotes();
   }, [search]);
 
-  // 🔹 Open Create Note Modal
+  //Open Create Note Modal
   const handleAddNote = () => {
     setEditingNote(null);
     setFormData({ title: "", description: "", tags: "" });
     setShowModal(true);
   };
 
-  // 🔹 Open Edit Modal
+  // Open Edit Modal
   const handleEditNote = (note) => {
     setEditingNote(note);
     setFormData({
@@ -75,7 +74,7 @@ export default function Dashboard() {
     setShowModal(true);
   };
 
-  // 🔹 Delete Note
+  // Delete Note
   const handleDeleteNote = async (id) => {
     try {
       await api.delete(`/notes/${id}`);
@@ -85,7 +84,7 @@ export default function Dashboard() {
     }
   };
 
-  // 🔹 Save Note (Create / Update)
+  // Save Note (Create / Update)
   const handleSaveNote = async () => {
     if (!formData.title.trim()) return;
 
@@ -109,14 +108,15 @@ export default function Dashboard() {
     }
   };
 
-  // 🔹 Logout
+
+  //Logout
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/login");
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Navbar */}
       <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -147,7 +147,7 @@ export default function Dashboard() {
             </div>
 
             <button className="p-2 hover:bg-gray-100 rounded-full transition">
-              <User size={20} />
+              <Link to="/profile"><User size={20} /></Link>
             </button>
 
             <button
@@ -177,7 +177,7 @@ export default function Dashboard() {
                 <h3 className="text-lg font-bold">{note.title}</h3>
 
                 {/* Edit/Delete Buttons */}
-                <div className="flex space-x-1 opacity-0 group-hover:opacity-100 transition">
+                <div className="flex space-x-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition">
                   <button
                     onClick={() => handleEditNote(note)}
                     className="p-1.5 bg-white/80 rounded-lg hover:bg-white"

@@ -14,18 +14,18 @@ function App() {
       {/* default redirect */}
       <Route 
         path="/" 
-        element={ token ? <Navigate to="/dashboard" /> : <Navigate to="/login" /> } 
+        element={<Navigate to="/login" replace/> } 
       />
 
       {/* auth pages */}
       <Route 
         path="/login" 
-        element={ token ? <Navigate to="/dashboard" /> : <Login /> } 
+        element={ <Login /> } 
       />
 
       <Route 
         path="/signup" 
-        element={ token ? <Navigate to="/dashboard" /> : <Signup /> } 
+        element={ <Signup /> } 
       />
 
       {/* protected pages */}
@@ -40,7 +40,7 @@ function App() {
       />
 
       {/* fallback */}
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   );
 }
