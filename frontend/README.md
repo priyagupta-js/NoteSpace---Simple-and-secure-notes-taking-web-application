@@ -1,16 +1,126 @@
-# React + Vite
+# 📝 NoteSpace — Simple & Secure Notes Taking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**NoteSpace** is a modern, full-stack notes management web application that allows users to securely create, edit, organize, and manage notes with a beautiful and responsive UI.
+The project focuses on **clean UX**, **secure authentication**, and **scalable backend architecture**.
 
-Currently, two official plugins are available:
+🔗 **Live Website:**
+👉 [https://note-space-simple-and-secure-notes.vercel.app/](https://note-space-simple-and-secure-notes.vercel.app/) 
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+### Authentication & Security
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* User Signup & Login using **JWT Authentication**
+* Protected routes (Dashboard & Profile)
+* Secure password hashing using **bcrypt**
+* Token-based session handling
 
-## Expanding the ESLint configuration
+### Notes Management
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Create, Edit, Delete notes
+* Search notes by title
+* Add tags to notes
+* Notes are **user-specific**
+* Colorful, aesthetic note cards
+
+### Dashboard
+
+* Displays all notes of the logged-in user
+* Responsive grid layout (Mobile, Tablet, Desktop)
+* Smooth hover & transition effects
+* Floating “Add Note” action button
+* Modal popup for creating/editing notes
+
+### User Profile
+
+* View user details
+* Update profile name
+* Display total notes count
+* Profile protected via authentication
+
+## 🛠 Tech Stack
+
+### Frontend
+
+* **React (Vite)**
+* **Tailwind CSS**
+* **React Router DOM**
+* **Axios**
+* **Lucide Icons**
+
+### Backend
+
+* **Node.js**
+* **Express.js**
+* **MongoDB (Mongoose)**
+* **JWT (jsonwebtoken)**
+* **bcryptjs**
+* **CORS**
+
+### Deployment
+
+* **Frontend:** Vercel
+* **Backend:** Render
+* **Database:** MongoDB Atlas
+
+---
+
+## Project Structure
+
+```
+NoteSpace/
+│
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── vite.config.js
+│
+├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── config/
+│   └── server.js
+│
+└── README.md
+```
+
+---
+
+## 🔄 Application Workflow
+
+### 1️⃣ Authentication Flow
+
+* User signs up → credentials stored securely
+* User logs in → JWT token generated
+* Token stored in browser storage
+* Protected routes verify token before access
+
+### 2️⃣ Notes Flow
+
+* User logs in → redirected to Dashboard
+* Notes fetched using authenticated API call
+* Create/Edit/Delete operations update database
+* UI updates in real-time
+
+### 3️⃣ Profile Flow
+
+* Fetch logged-in user details
+* Display profile info
+* Update profile name
+* Navigate back to dashboard
+
+---
+
+## Author
+
+**Your Name**
+🔗 GitHub: [https://github.com/priyagupta-js](https://github.com/priyagupta-js)
+🔗 LinkedIn: [https://www.linkedin.com/in/priyagupta-js/](https://www.linkedin.com/in/priyagupta-js/)
+
+---
