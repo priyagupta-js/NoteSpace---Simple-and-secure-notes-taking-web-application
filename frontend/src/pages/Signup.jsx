@@ -84,7 +84,7 @@ export default function Signup() {
 
               <button
                 type="submit"
-                className="w-full bg-linear-to-r from-purple-300 via-pink-300 to-orange-300 text-white font-semibold rounded-full py-3 shadow-lg hover:scale-105 transition"
+                className="w-full cursor-pointer bg-linear-to-r from-purple-300 via-pink-300 to-orange-300 text-white font-semibold rounded-full py-3 shadow-lg hover:scale-105 transition"
               >
                 Create Account
               </button>
