@@ -171,7 +171,7 @@ export default function Dashboard() {
             <div
               key={note.id}
               className={`break-inside-avoid shadow-md bg-linear-to-br ${note.color} ${note.height}
-                         rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl transition cursor-pointer group`}
+                         rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl transition group`}
             >
               <div className="flex justify-between mb-3">
                 <h3 className="text-lg font-bold">{note.title}</h3>

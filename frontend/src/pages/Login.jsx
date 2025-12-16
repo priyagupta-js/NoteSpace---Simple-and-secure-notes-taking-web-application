@@ -7,13 +7,22 @@ import Background from "../components/Background";
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  //loading state for UX feedback
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
-  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const onChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    //Prevent double-click / multiple requests
+    if (loading) return;
+
     setError("");
+    setLoading(true); //Start loading
 
     try {
       const res = await api.post("/auth/login", form);
@@ -21,6 +30,8 @@ export default function Login() {
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false); //Stop loading (success or error)
     }
   };
 
@@ -30,18 +41,17 @@ export default function Login() {
 
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
         <div className="w-full max-w-sm sm:max-w-md">
-          {/* Glassmorphic Card */}
           <div
             className="relative backdrop-blur-xl bg-white/10 
-                          rounded-[30px] sm:rounded-[40px] 
-                          p-8 sm:p-12 shadow-2xl border border-white/20 overflow-hidden"
+                       rounded-[30px] sm:rounded-[40px] 
+                       p-8 sm:p-12 shadow-2xl border border-white/20 overflow-hidden"
           >
             {/* Logo */}
             <div className="text-center mb-6 sm:mb-8">
               <h1
                 className="text-4xl sm:text-5xl font-bold mb-2 
-                             bg-linear-to-r   from-purple-400 to-orange-300 
-                             bg-clip-text text-transparent"
+                           bg-linear-to-r from-purple-400 to-orange-300 
+                           bg-clip-text text-transparent"
               >
                 NoteSpace
               </h1>
@@ -49,8 +59,6 @@ export default function Login() {
                 Capture your thoughts beautifully.
               </p>
             </div>
-
-            
 
             {/* Form */}
             <form onSubmit={onSubmit} className="space-y-6">
@@ -70,6 +78,7 @@ export default function Login() {
                              pl-12 pr-5 py-3 sm:py-3.5
                              text-sm sm:text-base text-gray-700 
                              placeholder-gray-500 focus:ring-2 focus:ring-white/50"
+                  required
                 />
               </div>
 
@@ -89,24 +98,46 @@ export default function Login() {
                              pl-12 pr-4 py-2.5 sm:py-3 
                              text-sm sm:text-base text-gray-700 
                              placeholder-gray-500 focus:ring-2 focus:ring-white/50"
+                  required
                 />
               </div>
 
-              {/* Button */}
+              {/*UPDATED BUTTON WITH LOADING + CLICK FEEDBACK */}
               <button
                 type="submit"
-                className="w-full bg-linear-to-r cursor-pointer from-purple-300 via-pink-300 to-orange-300 text-white font-semibold rounded-full py-2.5 sm:py-3 text-sm sm:text-base shadow-lg hover:scale-105 transition-transform"
+                disabled={loading} //Disable while loading
+                className={`
+                  w-full bg-linear-to-r from-purple-300 via-pink-300 to-orange-300
+                  text-white font-semibold rounded-full 
+                  py-2.5 sm:py-3 text-sm sm:text-base shadow-lg
+                  transition-all duration-200
+                  active:scale-95          /*Tap animation */
+                  hover:scale-105
+                  disabled:opacity-70
+                  disabled:cursor-not-allowed
+                  flex items-center justify-center gap-2
+                `}
               >
-                {" "}
-                Login{" "}
+                {loading ? (
+                  <>
+                    {/* 🔹 Spinner */}
+                    <span className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                    Logging in...
+                  </>
+                ) : (
+                  "Login"
+                )}
               </button>
             </form>
+
+            {/* Error Message */}
             {error && (
               <div className="text-center text-red-800 p-2 rounded-md text-sm mt-4">
                 {error}
               </div>
             )}
 
+            {/* Signup Link */}
             <p className="text-center mt-4 text-white text-xs sm:text-sm">
               Don’t have an account?{" "}
               <Link to="/signup" className="font-semibold hover:underline">
