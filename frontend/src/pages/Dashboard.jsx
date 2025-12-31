@@ -142,7 +142,7 @@ export default function Dashboard() {
                 placeholder="Search by titles..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="pl-10 pr-4 py-2 bg-gray-100 rounded-full w-64 text-sm focus:ring-2 focus:ring-purple-400"
+                className="pl-10 pr-4 py-2 bg-gray-100  w-64 text-sm focus:ring-2 focus:ring-purple-400"
               />
             </div>
 
