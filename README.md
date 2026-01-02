@@ -119,7 +119,7 @@ NoteSpace/
 
 ## Author
 
-**Your Name**
+**Priya Gupta**
 🔗 GitHub: [Click here](https://github.com/priyagupta-js)
 🔗 LinkedIn: [Click here](https://www.linkedin.com/in/priyagupta-js/)
 
